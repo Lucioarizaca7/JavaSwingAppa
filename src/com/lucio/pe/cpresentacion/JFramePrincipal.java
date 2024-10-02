@@ -4,6 +4,8 @@
  */
 package com.lucio.pe.cpresentacion;
 
+import java.awt.BorderLayout;
+
 /**
  *
  * @author Alumno-PB203
@@ -26,33 +28,47 @@ public class JFramePrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        principal = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        btn_Menu = new javax.swing.JMenu();
+        btnmenucalculadora = new javax.swing.JMenuItem();
+        btn_Menucontador = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("aplicacion en JavaSwing");
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
+        principal.setBackground(new java.awt.Color(255, 255, 255));
+        principal.setForeground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout principalLayout = new javax.swing.GroupLayout(principal);
+        principal.setLayout(principalLayout);
+        principalLayout.setHorizontalGroup(
+            principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1200, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        principalLayout.setVerticalGroup(
+            principalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 672, Short.MAX_VALUE)
         );
 
-        jMenuBar1.setBackground(new java.awt.Color(255, 255, 51));
         jMenuBar1.setBorder(null);
+        jMenuBar1.setOpaque(true);
 
-        jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+        btn_Menu.setText("aplicaciones");
+
+        btnmenucalculadora.setText("calculadora");
+        btnmenucalculadora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnmenucalculadoraActionPerformed(evt);
+            }
+        });
+        btn_Menu.add(btnmenucalculadora);
+
+        btn_Menucontador.setText("contador");
+        btn_Menu.add(btn_Menucontador);
+
+        jMenuBar1.add(btn_Menu);
 
         jMenu2.setText("Edit");
         jMenuBar1.add(jMenu2);
@@ -63,17 +79,30 @@ public class JFramePrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(principal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnmenucalculadoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmenucalculadoraActionPerformed
+        //este codigo sirve para llamar un jPanel 
+        Calculadora cal =  new Calculadora();
+        cal.setSize(400, 677);
+        cal.setLocation(0,0);
+        principal.removeAll();
+        principal.add(cal,BorderLayout.CENTER);
+        principal.revalidate();
+        principal.repaint();
+        
+        
+    }//GEN-LAST:event_btnmenucalculadoraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,9 +140,11 @@ public class JFramePrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu btn_Menu;
+    private javax.swing.JMenuItem btn_Menucontador;
+    private javax.swing.JMenuItem btnmenucalculadora;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel principal;
     // End of variables declaration//GEN-END:variables
 }
