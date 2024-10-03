@@ -32,21 +32,30 @@ public class Calculadora extends javax.swing.JPanel {
     
     private void operacion(String sentecia){
         if(sentecia.contains("+")){
-            this.numeroOperable(sentecia,"\\+");
-
+            this.numeroOperable(sentecia,"\\+","+");
         }else if(sentecia.contains("-")){
-            this.numeroOperable(sentecia,"\\-");
+            this.numeroOperable(sentecia,"\\-","-");
         }else if(sentecia.contains("*")){
-            this.numeroOperable(sentecia,"\\*");
+            this.numeroOperable(sentecia,"\\*","*");
         }else if(sentecia.contains("/")){
-            this.numeroOperable(sentecia,"\\/");
+            this.numeroOperable(sentecia,"\\/","/");
         }
     }
     
-    public void numeroOperable(String Sentencia,String simbolo){
-        String[] numero = Sentencia.split(simbolo);
-        float primerNumero = Float.parseFloat(numero[0]);
-        float segundoNumero = Float.parseFloat(numero[1]);
+    public void numeroOperable(String Sentencia,String simbolo,String valida){
+        String[] cortar = Sentencia.split("");
+        String[] numero;
+        float primerNumero = 0;
+        float segundoNumero = 0;
+        if(cortar[0].contains(valida)){
+            numero =  Sentencia.substring(1,Sentencia.length()).split(simbolo) ;
+            primerNumero =  Float.parseFloat(numero[0])-Float.parseFloat(numero[0])*2;
+            segundoNumero = 0;
+        }else{
+         numero = Sentencia.split(simbolo);
+         primerNumero = Float.parseFloat(numero[0]);
+         segundoNumero = Float.parseFloat(numero[1]);
+        }
         float resultado = 0;
         if (simbolo.equals("\\+")){
            resultado = primerNumero + segundoNumero;
@@ -303,7 +312,8 @@ public class Calculadora extends javax.swing.JPanel {
     }//GEN-LAST:event_textfieldresultadoActionPerformed
 
     private void btnDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDivisionActionPerformed
-         this.textfieldresultado.setText(this.textfieldresultado.getText()+"/");   
+        this.operacion(this.textfieldresultado.getText()); 
+        this.textfieldresultado.setText(this.textfieldresultado.getText()+"/");   
     }//GEN-LAST:event_btnDivisionActionPerformed
 
     private void btnPorcentajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPorcentajeActionPerformed
@@ -311,15 +321,17 @@ public class Calculadora extends javax.swing.JPanel {
     }//GEN-LAST:event_btnPorcentajeActionPerformed
 
     private void btnCEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCEActionPerformed
-        // TODO add your handling code here:
+        int tamanio = this.textfieldresultado.getText().length();
+        this.textfieldresultado.setText(this.textfieldresultado.getText().substring(0,tamanio-1));
     }//GEN-LAST:event_btnCEActionPerformed
 
     private void btnCCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCCActionPerformed
-        // TODO add your handling code here:
+        this.textfieldresultado.setText("");
     }//GEN-LAST:event_btnCCActionPerformed
 
     private void btnMultiplicacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMultiplicacionActionPerformed
-         this.textfieldresultado.setText(this.textfieldresultado.getText()+"*");    
+        this.operacion(this.textfieldresultado.getText()); 
+        this.textfieldresultado.setText(this.textfieldresultado.getText()+"*");    
     }//GEN-LAST:event_btnMultiplicacionActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
@@ -336,7 +348,8 @@ public class Calculadora extends javax.swing.JPanel {
     }//GEN-LAST:event_btn9ActionPerformed
 
     private void btnRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaActionPerformed
-         this.textfieldresultado.setText(this.textfieldresultado.getText()+"-");   
+        this.operacion(this.textfieldresultado.getText()); 
+        this.textfieldresultado.setText(this.textfieldresultado.getText()+"-");   
     }//GEN-LAST:event_btnRestaActionPerformed
 
     private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
@@ -352,7 +365,8 @@ public class Calculadora extends javax.swing.JPanel {
     }//GEN-LAST:event_btn6ActionPerformed
 
     private void btnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaActionPerformed
-          this.textfieldresultado.setText(this.textfieldresultado.getText()+"+");                                       
+        this.operacion(this.textfieldresultado.getText());
+        this.textfieldresultado.setText(this.textfieldresultado.getText()+"+");                                       
     }//GEN-LAST:event_btnSumaActionPerformed
 
     private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed

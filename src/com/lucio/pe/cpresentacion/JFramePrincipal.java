@@ -66,6 +66,11 @@ public class JFramePrincipal extends javax.swing.JFrame {
         btn_Menu.add(btnmenucalculadora);
 
         btn_Menucontador.setText("contador");
+        btn_Menucontador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_MenucontadorActionPerformed(evt);
+            }
+        });
         btn_Menu.add(btn_Menucontador);
 
         jMenuBar1.add(btn_Menu);
@@ -103,6 +108,16 @@ public class JFramePrincipal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnmenucalculadoraActionPerformed
+
+    private void btn_MenucontadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MenucontadorActionPerformed
+        Contador con =  new Contador();
+        con.setSize(500,400);
+        con.setLocation(0,0);
+        principal.removeAll();
+        principal.add(con,BorderLayout.CENTER);
+        principal.revalidate();
+        principal.repaint();
+    }//GEN-LAST:event_btn_MenucontadorActionPerformed
 
     /**
      * @param args the command line arguments

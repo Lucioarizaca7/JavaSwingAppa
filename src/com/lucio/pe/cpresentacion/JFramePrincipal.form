@@ -27,6 +27,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="contador"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_MenucontadorActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
