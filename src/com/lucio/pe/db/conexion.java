@@ -14,7 +14,7 @@ import java.sql.DriverManager;
 public class conexion {
      
     private static Connection con = null ;
-    private static String usuario = "USUARIO_TIENDA_VIRTUAL";
+    private static String usuario = "USUARIO_MATRICULA";
     private static String clave = "1234560 ";
     private static String url = "jdbc:oracle:thin:@localhost:1521:xe";
     
